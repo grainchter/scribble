@@ -1,0 +1,78 @@
+$header-height: 50px;
+
+.notes {
+  background-color: chocolate;
+  width: var(--max-width-content);
+  max-width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  display: grid;
+  grid-template-rows: 1fr 50px;
+  place-items: center;
+  align-items: start;
+  position: relative;
+
+  & > .bg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    z-index: 1;
+
+    .bgWrapper {
+      position: absolute;
+      bottom: 0;
+      z-index: 2;
+      background-color: rgba(0, 0, 0, 0.153);
+      backdrop-filter: blur(2px);
+      width: 100%;
+      overflow: hidden;
+      height: 100%;
+    }
+
+    & > .lottie {
+      width: 100%;
+    }
+  }
+
+  & > .header {
+    position: fixed;
+    background-color: transparent;
+    backdrop-filter: blur(2px);
+    width: var(--max-width-content);
+    max-width: 100%;
+    height: $header-height;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: 10px;
+    place-items: end;
+    align-items: center;
+    padding: 10px;
+    z-index: 4;
+
+    & > .search,
+    & > .sort {
+      & > svg {
+        stroke: var(--text-color);
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  & > .mainContent {
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+  }
+
+  & > .footer {
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(30, 143, 255, 0);
+  }
+}

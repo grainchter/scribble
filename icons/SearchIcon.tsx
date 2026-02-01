@@ -14,9 +14,9 @@ export const SearchIcon = ({
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="0.75"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeWidth="0.75"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className="lucide lucide-search-icon lucide-search"
   >
     <path d="m21 21-4.34-4.34" />

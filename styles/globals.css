@@ -65,12 +65,27 @@
 
   --max-width-content: 1000px;
 
+  --font-thin: var(--font-montserrat-thin);
+
+  /* базовые размеры */
+  --font-size-xs: 0.75rem; /* 12px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-md: 1rem; /* 16px */
+  --font-size-lg: 1.125rem; /* 18px */
+  --font-size-xl: 1.25rem; /* 20px */
+
+  /* крупные заголовки */
+  --font-size-2xl: 1.5rem; /* 24px */
+  --font-size-3xl: 1.875rem; /* 30px */
+  --font-size-4xl: 2.25rem; /* 36px */
+  --font-size-5xl: 3rem; /* 48px */
+
   /* Брейкпоинты */
   --breakpoint-sm: 640px;
 }
 
 .dark {
-  --background: oklch(0.2204 0.0198 275.8439);
+  --background: oklch(0.3346 0.0738 276.52);
   --foreground: oklch(0.9366 0.0129 266.6974);
   --card: oklch(0.2703 0.0407 281.3036);
   --card-foreground: oklch(0.9366 0.0129 266.6974);
@@ -164,6 +179,18 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --font-thin: var(--font-thin);
+
+  --font-size-xs: var(--font-size-xs);
+  --font-size-sm: var(--font-size-sm);
+  --font-size-md: var(--font-size-md);
+  --font-size-lg: var(--font-size-lg);
+  --font-size-xl: var(--font-size-xl);
+  --font-size-2xl: var(--font-size-2xl);
+  --font-size-3xl: var(--font-size-3xl);
+  --font-size-4xl: var(--font-size-4xl);
+  --font-size-5xl: var(--font-size-5xl);
+
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
@@ -201,4 +228,25 @@
     place-items: center;
     align-items: start;
   }
+}
+
+html {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.053) transparent;
+}
+
+/* Chrome / Edge / Safari */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.053); /* полупрозрачный бегунок */
+  border-radius: 4px;
 }

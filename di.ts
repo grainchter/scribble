@@ -1,6 +1,6 @@
 import { Note } from "./domain/entity/note";
-import { newGetAllNotesScenario } from "./domain/scenario/getAllNotesScenario";
-import { getNotesSortedByCreationType } from "./domain/scenario/interfaces";
+import { newGetAllNotesScenario } from "./domain/services/getAllNotesScenario";
+import { getNotesSortedByCreationType } from "./domain/services/interfaces";
 import { newGetNotesSortedByCreation } from "./domain/usecase/getNotesSortedByCreation";
 import { NotesRepository } from "./repository/notes.repository";
 

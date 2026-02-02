@@ -1,5 +1,5 @@
 import { Note } from "../entity/note";
-import { getNotesSortedByCreationType } from "../scenario/interfaces";
+import { getNotesSortedByCreationType } from "../services/interfaces";
 import { sortDirection } from "../types/sortDirection";
 import { INotesRepository } from "./interfaces";
 

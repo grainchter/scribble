@@ -1,9 +1,9 @@
-import { getAllNotesScenario } from "@/di";
+import { getAllNotesService } from "@/di";
 import { Note } from "@/domain/entity/note";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 async function fetchNotes(): Promise<Note[]> {
-  return getAllNotesScenario("asc");
+  return getAllNotesService("asc");
 }
 
 export const useNotes = () => {

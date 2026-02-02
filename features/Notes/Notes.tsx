@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import s from "./index.module.scss";
 import meteor from "./../../animations/meteor.json";
-import { useNotes } from "@/hooks/useNotes";
+import { useNotes } from "@/hooks/notes/useNotes";
 
 export default function Notes() {
   const { data, isLoading } = useNotes();

@@ -1,7 +1,7 @@
 import { sortDirection } from "../types/sortDirection";
 import { getNotesSortedByCreationType } from "./interfaces";
 
-export const newGetAllNotesScenario = async (
+export const newGetAllNotesService = async (
   getNotesSortedByCreationUseCase: getNotesSortedByCreationType,
 ) => {
   return (direction: sortDirection) => {

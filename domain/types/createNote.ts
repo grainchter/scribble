@@ -1,4 +1,4 @@
-export type createNote = {
+export type createNoteParamsType = {
   title: string;
   content: string;
 };

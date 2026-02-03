@@ -1,10 +1,14 @@
 import { Note } from "@/domain/entity/note";
-import { createNote } from "@/domain/types/createNote";
+import { createNoteParamsType } from "@/domain/types/createNote";
+
 import { sortDirection } from "@/domain/types/sortDirection";
+import { updateNoteParamsType } from "@/domain/types/updateNote";
 
 export interface INotesRepository {
   getAll: (direction: sortDirection) => Promise<Note[]>;
-  createNote: (note: createNote) => Promise<Note>;
+  createNote: (note: createNoteParamsType) => Promise<Note>;
+  updateNote: (note: updateNoteParamsType) => Promise<Note>;
+  deleteNote: (id: number) => Promise<null>;
 }
 
 export class NotesRepository implements INotesRepository {
@@ -30,7 +34,15 @@ export class NotesRepository implements INotesRepository {
     return notes?.map((note) => new Note(note));
   }
 
-  async createNote(note: createNote): Promise<Note> {
-    return { id: 12345, title: "heeeee", content: "123" };
+  async createNote(note: createNoteParamsType): Promise<Note> {
+    return { ...note, id: 1234 };
+  }
+
+  async updateNote(note: updateNoteParamsType): Promise<Note> {
+    return { ...note, title: "updated title", content: "createdTitle" };
+  }
+
+  async deleteNote(id: number): Promise<null> {
+    return null;
   }
 }

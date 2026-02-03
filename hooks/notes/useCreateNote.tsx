@@ -1,8 +1,10 @@
+import { createNoteService } from "@/di";
 import { Note } from "@/domain/entity/note";
+import { createNoteParamsType } from "@/domain/types/createNote";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-async function createNote(data: { title: string; content: string }) {
-  return { id: 111, title: "created", content: "wow" };
+async function createNote(data: createNoteParamsType) {
+  return await createNoteService(data);
 }
 
 export const useCreateNote = () => {
@@ -10,14 +12,14 @@ export const useCreateNote = () => {
 
   return useMutation({
     mutationFn: createNote,
-    onMutate: async (newNote) => {
+    onMutate: async (newNote: createNoteParamsType) => {
       await queryClient.cancelQueries({ queryKey: ["notes"] });
       const prevTodos = queryClient.getQueryData<Note[]>(["notes"]);
       queryClient.setQueryData(["notes"], (old: Note[] | undefined) => {
         if (!old) {
-          return [{ ...newNote }];
+          return [{ ...newNote, id: -Date.now() }];
         }
-        return [...old, { ...newNote }];
+        return [...old, { ...newNote, id: -Date.now() }];
       });
 
       return { prevTodos };
@@ -27,8 +29,11 @@ export const useCreateNote = () => {
         queryClient.setQueryData(["notes"], context.prevTodos);
       }
     },
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["notes"] });
+    onSuccess: (createdNote) => {
+      queryClient.setQueryData<Note[]>(["notes"], (old) => {
+        if (!old) return [createdNote];
+        return [...old.filter((n) => n.id > 0), createdNote];
+      });
     },
   });
 };

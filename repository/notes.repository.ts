@@ -1,7 +1,11 @@
 import { Note } from "@/domain/entity/note";
 import { createNote } from "@/domain/types/createNote";
 import { sortDirection } from "@/domain/types/sortDirection";
-import { INotesRepository } from "@/domain/usecase/interfaces";
+
+export interface INotesRepository {
+  getAll: (direction: sortDirection) => Promise<Note[]>;
+  createNote: (note: createNote) => Promise<Note>;
+}
 
 export class NotesRepository implements INotesRepository {
   async getAll(direction: sortDirection): Promise<Note[]> {

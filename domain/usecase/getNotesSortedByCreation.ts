@@ -1,11 +1,12 @@
 import { Note } from "../entity/note";
-import { getNotesSortedByCreationType } from "../services/interfaces";
 import { sortDirection } from "../types/sortDirection";
 import { INotesRepository } from "./interfaces";
 
-export const newGetNotesSortedByCreation = (
+export type getAllNotesSortedBy = (direction: sortDirection) => Promise<Note[]>;
+
+export const newGetAllNotesSortedBy = (
   notesRepository: INotesRepository,
-): getNotesSortedByCreationType => {
+): getAllNotesSortedBy => {
   return (direction: sortDirection): Promise<Note[]> => {
     return notesRepository.getAll(direction);
   };

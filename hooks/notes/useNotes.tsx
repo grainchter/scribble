@@ -1,9 +1,10 @@
-import { getAllNotesService } from "@/di";
+
+import { getAllNotesBy } from "@/di";
 import { Note } from "@/domain/entity/note";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 async function fetchNotes(): Promise<Note[]> {
-  return getAllNotesService("asc");
+  return getAllNotesBy("asc");
 }
 
 export const useNotes = () => {

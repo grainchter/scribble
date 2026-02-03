@@ -1,10 +1,10 @@
 import { INotesRepository } from "@/repository/notes.repository";
 
-export type deleteNoteType = (id: number) => Promise<null>;
+export type TDeleteNote = (id: number) => Promise<null>;
 
 export const deleteNote = (
   notesRepository: INotesRepository,
-): deleteNoteType => {
+): TDeleteNote => {
   return (id: number): Promise<null> => {
     return notesRepository.deleteNote(id);
   };

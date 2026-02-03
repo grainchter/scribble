@@ -1,10 +1,10 @@
-import { updateNoteService } from "@/di";
+import { updateNoteUseCase } from "@/di";
 import { Note } from "@/domain/entity/note";
 import { updateNoteParamsType } from "@/domain/types/updateNote";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 async function updateNote(data: updateNoteParamsType) {
-  return await updateNoteService(data); 
+  return await updateNoteUseCase(data); 
 }
 
 export const useUpdateNote = () => {

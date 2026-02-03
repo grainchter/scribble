@@ -2,11 +2,11 @@ import { INotesRepository } from "@/repository/notes.repository";
 import { Note } from "../entity/note";
 import { createNoteParamsType } from "../types/createNote";
 
-export type createNoteType = (note: createNoteParamsType) => Promise<Note>;
+export type TCeateNote = (note: createNoteParamsType) => Promise<Note>;
 
 export const createNote = (
   notesRepository: INotesRepository,
-): createNoteType => {
+): TCeateNote => {
   return (note: createNoteParamsType): Promise<Note> => {
     return notesRepository.createNote(note);
   };

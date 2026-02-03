@@ -1,9 +1,9 @@
-import { deleteNoteService } from "@/di";
+import { deleteNoteUseCase } from "@/di";
 import { Note } from "@/domain/entity/note";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 async function deleteNote(id: number) {
-  return await deleteNoteService(id); 
+  return await deleteNoteUseCase(id); 
 }
 
 export const useDeleteNote = () => {

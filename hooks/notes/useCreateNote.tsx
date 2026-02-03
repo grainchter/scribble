@@ -1,10 +1,10 @@
-import { createNoteService } from "@/di";
+import { createNoteUseCase } from "@/di";
 import { Note } from "@/domain/entity/note";
 import { createNoteParamsType } from "@/domain/types/createNote";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 async function createNote(data: createNoteParamsType) {
-  return await createNoteService(data);
+  return await createNoteUseCase(data);
 }
 
 export const useCreateNote = () => {

@@ -5,27 +5,24 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import MainContent from "./components/MainContent";
 import s from "./index.module.scss";
-import meteor from "./../../animations/meteor.json";
 import { useNotes } from "@/hooks/notes/useNotes";
 import { createNoteParamsType } from "@/domain/types/createNote";
-import { useCreateNote } from "@/hooks/notes/useCreateNote";
+import { useRouter } from "next/navigation";
+
 
 export default function Notes() {
   const { data, isLoading } = useNotes();
-  const createNote = useCreateNote();
+  const router = useRouter()
 
-  // TODO test!!! сделать навигацию на страничку создания
   const handleCreateNote = (note: createNoteParamsType) => {
-    createNote.mutateAsync(note);
+    router.push('/create')
   };
-
-  console.log(data);
   
   return (
     <div className={s.notes}>
       <div className={s.bg}>
         <div className={s.bgWrapper}></div>
-        <Lottie animationData={meteor} loop={true} className={s.lottie} />
+        {/* <Lottie animationData={meteor} loop={true} className={s.lottie} /> */}
       </div>
       <Header />
       <MainContent />

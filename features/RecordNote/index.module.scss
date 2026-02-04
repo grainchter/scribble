@@ -1,0 +1,48 @@
+.form {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  padding: 10px;
+  display: grid;
+  row-gap: 10px;
+  grid-template-rows: auto auto 1fr;
+
+  .header {
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    place-items: end;
+    align-items: center;
+
+    & > button {
+      width: 80px;
+      height: 25px;
+
+      &:hover {
+        transform: scale(1.25);
+        transition: transform 0.15s ease-out;
+      }
+    }
+  }
+
+  & > .textarea {
+    min-height: 180px;
+
+    & > textarea {
+        min-height: 100%;
+    }
+  }
+}
+
+.spinner {
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

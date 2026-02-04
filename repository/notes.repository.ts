@@ -25,7 +25,7 @@ export class NotesRepository implements INotesRepository {
         content: "jkdejdkd",
       },
     ];
-    await fetch("https://dogapi.dog/api/v1/facts?number=2")
+    await fetch("http://localhost:3000/api/notes")
       .then((response) => response.json())
       .then((data) =>
         notes.push({ id: 555, title: data?.facts?.[1], content: "" }),
@@ -35,6 +35,11 @@ export class NotesRepository implements INotesRepository {
   }
 
   async createNote(note: createNoteParamsType): Promise<Note> {
+    await fetch(`http://localhost:3000/api/notes`, {
+      method: "POST",
+      body: JSON.stringify(note),
+    });
+
     return { ...note, id: 1234 };
   }
 

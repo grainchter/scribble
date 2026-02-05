@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import Header from "./Header";
 import s from "./index.module.scss"
+import Footer from "./Footer";
 
 const formSchema = z.object({
   title: z
@@ -61,6 +62,7 @@ export default function RecordNote() {
           <p>{errors.content.message}</p>
         )}
       </div>
+      <Footer />
     </form>
   );
 }
